@@ -8,28 +8,32 @@ let score = 0;
 
 let flipCards = [
   {
-    front: "France",
-    back: "Paris",
+    country: "France",
+    capital: "Paris",
   },
   {
-    front: "Spain ",
-    back: "Madrid",
+    country: "Spain ",
+    capital: "Madrid",
   },
   {
-    front: "Italy",
-    back: "Rome",
+    country: "Italy",
+    capital: "Rome",
   },
   {
-    front: "Germany",
-    back: "Berlin",
+    country: "Germany",
+    capital: "Berlin",
   },
   {
-    front: "Austria",
-    back: "Vienna",
+    country: "Austria",
+    capital: "Vienna",
   },
   {
-    front: "Albania",
-    back: "Tirana",
+    country: "Albania",
+    capital: "Tirana",
+  },
+  {
+    country: "Greece",
+    capital: "Athens",
   },
 ];
 
@@ -52,7 +56,7 @@ function createFlashCard() {
   let card = flipCards[index];
 
   let flashCard = `
-    <div class="card" data-country=${card.front} data-capital=${card.back}>${card.front}</div>
+    <div class="card" data-country=${card.country} data-capital=${card.capital}>${card.country}</div>
   `;
 
   container.innerHTML = "";
@@ -82,7 +86,7 @@ form.addEventListener("submit", (e) => {
   const data = Object.fromEntries(new FormData(e.target).entries());
 
   let userChoice = data.choice.toLowerCase();
-  let currentAnswer = flipCards[index].back.toLowerCase();
+  let currentAnswer = flipCards[index].capital.toLowerCase();
 
   if (userChoice === currentAnswer) {
     score++;
@@ -93,6 +97,19 @@ form.addEventListener("submit", (e) => {
   let card = document.querySelector(".card");
   card.click();
 });
+
+/*shuffle(flipCards) {
+  let remainingCards = flipCards.length;
+  let randomIndex;
+  let newCards = [];
+  while (remainingCards != 0) {
+    randomIndex = Math.floor(Math.random() * remainingCards);
+    newCards.push(flipCards.splice(randomIndex, 1)[0]);
+    remainingCards--;
+  }
+  flipCards = newCards;
+}
+}
 
 // let userInput = ""
 // let score = 0;
@@ -123,7 +140,7 @@ card.forEach((element) => {
 
 // flipCards.forEach((card) => {
 //   let flashCard = `
-//     <div class="cards" data-country=${card.front} data-capital=${card.back}>${card.front}</div>
+//     <div class="cards" data-country=${card.country} data-capital=${card.capital}>${card.country}</div>
 //   `;
 
 //   container.insertAdjacentHTML("beforeend", flashCard);
