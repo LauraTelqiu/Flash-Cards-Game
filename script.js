@@ -3,6 +3,7 @@ let nextQuestion = document.querySelector(".nextQuestion");
 let form = document.querySelector("form");
 let choice = document.querySelector("#choice");
 let restartButton = document.querySelector("#restartButton");
+let gameName = document.querySelector("#gameName");
 
 let index = 0;
 let score = 0;
@@ -76,9 +77,7 @@ function shuffle() {
     [flipCards[i], flipCards[j]] = [flipCards[j], flipCards[i]];
   }
 
-  console.log(flipCards);
   flipCards = [...flipCards.splice(0, 10)];
-  console.log(flipCards);
 }
 
 function handleClick(e) {
@@ -111,12 +110,16 @@ function createFlashCard() {
 function restart() {
   restart = location.reload();
 }
+function remove() {
+  form.remove();
+  nextQuestion.remove();
+  gameName.remove();
+}
 
 shuffle();
 createFlashCard();
 
 nextQuestion.addEventListener("click", (e) => {
-  // index = Math.floor(Math.random() * (flipCards.length + 1));
   index++;
   choice.value = "";
   if (index < flipCards.length) {
@@ -128,6 +131,7 @@ nextQuestion.addEventListener("click", (e) => {
 
     container.innerHTML = "";
     container.insertAdjacentHTML("beforeend", winMessage);
+    remove();
   }
 });
 
