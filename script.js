@@ -2,6 +2,7 @@ let container = document.querySelector(".container");
 let nextQuestion = document.querySelector(".nextQuestion");
 let form = document.querySelector("form");
 let choice = document.querySelector("#choice");
+let restartButton = document.querySelector("#restartButton");
 
 let index = 0;
 let score = 0;
@@ -20,6 +21,10 @@ let flipCards = [
     capital: "Rome",
   },
   {
+    country: "United Kingdom",
+    capital: "London",
+  },
+  {
     country: "Germany",
     capital: "Berlin",
   },
@@ -35,7 +40,46 @@ let flipCards = [
     country: "Greece",
     capital: "Athens",
   },
+  {
+    country: "Belgium",
+    capital: "Brussels",
+  },
+  {
+    country: "Hungary",
+    capital: "Budapest",
+  },
+  {
+    country: "Russia",
+    capital: "Moscow",
+  },
+  {
+    country: "Poland",
+    capital: "Warsaw",
+  },
+  {
+    country: "Sweden",
+    capital: "Stockholm",
+  },
+  {
+    country: "Portugal",
+    capital: "Lisbon",
+  },
+  {
+    country: "Ukraine",
+    capital: "	Kiev",
+  },
 ];
+
+function shuffle() {
+  for (let i = flipCards.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [flipCards[i], flipCards[j]] = [flipCards[j], flipCards[i]];
+  }
+
+  console.log(flipCards);
+  flipCards = [...flipCards.splice(0, 10)];
+  console.log(flipCards);
+}
 
 function handleClick(e) {
   if (e.target.innerHTML === e.target.dataset.capital) {
@@ -64,16 +108,22 @@ function createFlashCard() {
   cardEvent();
 }
 
+function restart() {
+  restart = location.reload();
+}
+
+shuffle();
 createFlashCard();
 
 nextQuestion.addEventListener("click", (e) => {
+  // index = Math.floor(Math.random() * (flipCards.length + 1));
   index++;
   choice.value = "";
   if (index < flipCards.length) {
     createFlashCard();
   } else {
     let winMessage = `
-      <h1 class="win">Great job! You scored ${score} out of ${flipCards.length}</h1>
+      <h1 class="win">You scored ${score} out of ${flipCards.length}</h1>
     `;
 
     container.innerHTML = "";
@@ -98,45 +148,7 @@ form.addEventListener("submit", (e) => {
   card.click();
 });
 
-/*shuffle(flipCards) {
-  let remainingCards = flipCards.length;
-  let randomIndex;
-  let newCards = [];
-  while (remainingCards != 0) {
-    randomIndex = Math.floor(Math.random() * remainingCards);
-    newCards.push(flipCards.splice(randomIndex, 1)[0]);
-    remainingCards--;
-  }
-  flipCards = newCards;
-}
-}
-
-// let userInput = ""
-// let score = 0;
-// function playGame() {
-//   let inputText = document.querySelectorAll("#choice").inputText
-//     inputText.forEach(card) => {
-
-//   }
-
-// }
-
-/*
-let card = document.querySelectorAll(".card");
-card.forEach((element) => {
-  //add eventlistener to flip the card
-  addEventListener("click", (event) => {
-    if (event.target.classList.contains()) {
-      event.target.classList.remove();
-      console.log(event.target);
-    } else {
-      event.target.classList.add();
-      console.log(event.target.classList);
-    }
-  });
-});
-
-*/
+restartButton.addEventListener("click", restart);
 
 // flipCards.forEach((card) => {
 //   let flashCard = `
