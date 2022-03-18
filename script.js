@@ -86,8 +86,6 @@ function handleClick(e) {
   } else {
     e.target.innerHTML = e.target.dataset.capital;
   }
-
-  e.target.classList.toggle("flipped");
 }
 
 function cardEvent() {
