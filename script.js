@@ -86,6 +86,7 @@ function handleClick(e) {
   } else {
     e.target.innerHTML = e.target.dataset.capital;
   }
+  e.target.classList.toggle("flipped");
 }
 
 function cardEvent() {
@@ -136,6 +137,7 @@ nextQuestion.addEventListener("click", (e) => {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const data = Object.fromEntries(new FormData(e.target).entries());
+  console.log(data);
 
   let userChoice = data.choice.toLowerCase();
   let currentAnswer = flipCards[index].capital.toLowerCase();

@@ -1,36 +1,36 @@
 body {
   background-color: rgb(222, 233, 241);
-  background-image: url("https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80");
+  background-image: url("https://images.unsplash.com/photo-1634655377962-e6e7b446e7e9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1664&q=80");
   text-align: center;
   font-family: cursive;
-  color: white;
+  color: black;
+  position: relative;
 }
 
 .card {
   height: 400px;
   width: 700px;
-  color: black;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 2px solid black;
   background-size: cover;
   font-size: 100px;
-  background-image: url("https://images.unsplash.com/photo-1482977036925-e8fcaa643657?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80");
+  background-image: url("https://i.imgur.com/P4tKkCK.jpeg");
   margin: 10px;
 }
 
 .flipped {
   font-size: 100px;
-  /* background-image: url("https://images.unsplash.com/photo-1551376347-075b0121a65b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"); */
-  color: black;
-  background-color: aqua;
+  background-image: url("https://images.unsplash.com/photo-1551376347-075b0121a65b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80");
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
 }
 
 .container {
   display: flex;
   justify-content: center;
-  color: black;
 }
 
 form {
@@ -42,7 +42,6 @@ form {
   text-align: center;
   background-color: rgb(241, 235, 240);
   margin: 10px;
-  color: black;
 }
 #choice {
   background-color: rgb(241, 235, 240);
@@ -52,10 +51,8 @@ form {
 }
 #restartButton {
   background-color: rgb(241, 235, 240);
-  color: black;
 }
 .win {
-  color: white;
   font-size: 80px;
   font-family: fantasy;
 }
