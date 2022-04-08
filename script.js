@@ -70,7 +70,7 @@ let flipCards = [
     capital: "	Kiev",
   },
 ];
-
+//Shuffle the cards and get only 10 in radnom order
 function shuffle() {
   for (let i = flipCards.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
@@ -80,6 +80,7 @@ function shuffle() {
   flipCards = [...flipCards.splice(0, 10)];
 }
 
+//match country with capital
 function handleClick(e) {
   if (e.target.innerHTML === e.target.dataset.capital) {
     e.target.innerHTML = e.target.dataset.country;
@@ -89,11 +90,12 @@ function handleClick(e) {
   e.target.classList.toggle("flipped");
 }
 
+//flip card
 function cardEvent() {
   let card = document.querySelector(".card");
   card.addEventListener("click", handleClick);
 }
-
+//start game
 function createFlashCard() {
   let card = flipCards[index];
 
@@ -105,10 +107,11 @@ function createFlashCard() {
   container.insertAdjacentHTML("beforeend", flashCard);
   cardEvent();
 }
-
+//restart game
 function restart() {
   restart = location.reload();
 }
+//remove form, next question, and name of the game
 function remove() {
   form.remove();
   nextQuestion.remove();
@@ -119,6 +122,13 @@ shuffle();
 createFlashCard();
 
 nextQuestion.addEventListener("click", (e) => {
+  let userChoice = choice.value.toLowerCase();
+  let currentAnswer = flipCards[index].capital.toLowerCase();
+
+  if (userChoice === currentAnswer) {
+    score++;
+  }
+
   index++;
   choice.value = "";
   if (index < flipCards.length) {
@@ -136,28 +146,10 @@ nextQuestion.addEventListener("click", (e) => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const data = Object.fromEntries(new FormData(e.target).entries());
-  console.log(data);
 
-  let userChoice = data.choice.toLowerCase();
-  let currentAnswer = flipCards[index].capital.toLowerCase();
-
-  if (userChoice === currentAnswer) {
-    score++;
-  }
-
-  console.log(score);
-
+  //The HTMLElement.click() method simulates a mouse click on an element.
   let card = document.querySelector(".card");
+
   card.click();
 });
-
 restartButton.addEventListener("click", restart);
-
-// flipCards.forEach((card) => {
-//   let flashCard = `
-//     <div class="cards" data-country=${card.country} data-capital=${card.capital}>${card.country}</div>
-//   `;
-
-//   container.insertAdjacentHTML("beforeend", flashCard);
-// });
