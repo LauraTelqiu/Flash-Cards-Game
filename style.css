@@ -1,6 +1,6 @@
 body {
-  background-color: rgb(222, 233, 241);
-  background-image: url("https://images.unsplash.com/photo-1634655377962-e6e7b446e7e9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1664&q=80");
+  background-color: rgb(250, 222, 225);
+
   text-align: center;
 
   color: black;
@@ -53,6 +53,7 @@ form {
 
 #choice {
   background-color: rgb(241, 235, 240);
+
 }
 
 #answer {
@@ -67,6 +68,9 @@ form {
   font-family: fantasy;
 }
 
+#rules {
+  color: rgb(160, 157, 157);
+}
 
 @media only screen and (max-width: 700px) {
   body {
@@ -77,6 +81,12 @@ form {
 
   .card {
     font-size: x-large;
+  }
+
+  #choice {
+    width: 20%;
+
+    height: 30%;
   }
 
   .container {
