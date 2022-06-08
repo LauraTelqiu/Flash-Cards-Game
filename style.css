@@ -2,26 +2,32 @@ body {
   background-color: rgb(222, 233, 241);
   background-image: url("https://images.unsplash.com/photo-1634655377962-e6e7b446e7e9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1664&q=80");
   text-align: center;
-  font-family: cursive;
+
   color: black;
   position: relative;
+
+}
+
+p {
+  text-align: center;
+  padding: 0 5% 0 5%;
 }
 
 .card {
-  height: 400px;
-  width: 700px;
+  height: 3em;
+  width: 5em;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 2px solid black;
   background-size: cover;
-  font-size: 100px;
+  font-size: 5em;
   background-image: url("https://i.imgur.com/P4tKkCK.jpeg");
   margin: 10px;
 }
 
 .flipped {
-  font-size: 100px;
+  font-size: 5em;
   background-image: url("https://images.unsplash.com/photo-1551376347-075b0121a65b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80");
   transition: 0.6s;
   transform-style: preserve-3d;
@@ -36,6 +42,7 @@ body {
 form {
   text-align: center;
   font-size: medium;
+
 }
 
 .nextQuestion {
@@ -43,16 +50,38 @@ form {
   background-color: rgb(241, 235, 240);
   margin: 10px;
 }
+
 #choice {
   background-color: rgb(241, 235, 240);
 }
+
 #answer {
   font-size: 25px;
 }
+
 #restartButton {
   background-color: rgb(241, 235, 240);
 }
+
 .win {
-  font-size: 80px;
   font-family: fantasy;
+}
+
+
+@media only screen and (max-width: 700px) {
+  body {
+    width: 100%;
+    height: 100%;
+
+  }
+
+  .card {
+    font-size: x-large;
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+
+  }
 }

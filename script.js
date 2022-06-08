@@ -116,6 +116,7 @@ function remove() {
   form.remove();
   nextQuestion.remove();
   gameName.remove();
+  rules.remove();
 }
 
 shuffle();
